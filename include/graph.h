@@ -3,40 +3,46 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
+#include <limits>
+#include <queue>
+#include <unordered_map>
 
 using namespace std;
 
-#define Null nullptr
-#define Info(P) (P)->Info
-#define Next(P) (P)->Next
-#define NextClass(P) (P)->NextClass
-#define First(L) (L).First
-
+#define first(L) (L).first
+#define info(P) (P)->info
+#define nextKota(P) (P)->next
+#define nextRute(P) (P)->nextRute
 
 struct Rute {
     string tujuan;
     int waktuTempuh;
     int biaya;
-    Rute* Next;
+    Rute* nextRute;
 };
-
 
 struct Kota {
     string nama;
-    Rute* FirstRute;
-    Kota* NextClass;
+    Rute* firstRute;
+    Kota* next;
 };
 
 struct Graf {
-    Kota* First;
+    Kota* first;
 };
 
-
-void tambahKota(Graf& L);
-void tambahRuteDariPengguna(Graf& L);
-void hapusRute(Graf& L);
+void createGraph(Graf& L);
+Kota* allocateKota(const string& nama);
+Rute* allocateRute(const string& tujuan, int waktu, int biaya);
+void tambahKota(Graf& L, const string& nama);
+void tambahRute(Graf& L, const string& asal, const string& tujuan, int waktu, int biaya);
 void tampilkanRute(const Graf& L);
-void dijkstra(Graf& L, const string& start, bool pilihWaktu);
+void dijkstra(const Graf& L, const string& start, bool pilihWaktu);
+void tampilkanKota(const Graf& L);
+void hapusRute(Graf& L, const string& asal, const string& tujuan);
+void hapusKota(Graf& L, const string& namaKota);
+bool cariRute(const Graf& L, const string& asal, const string& tujuan);
+bool cariKota(const Graf& L, const string& namaKota);
+
 
 #endif

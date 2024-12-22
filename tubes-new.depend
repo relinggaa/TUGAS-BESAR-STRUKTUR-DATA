@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1734636845 source:d:\strukdat\tubes-new\main.cpp
+	"graph.h"
+	<cstdlib>
+	<iostream>
+	<iomanip>
+	<string>
+	<windows.h>
+	<unistd.h>
+	<sys/ioctl.h>
+
+1734632973 d:\strukdat\tubes-new\include\graph.h
+	<iostream>
+	<string>
+	<limits>
+	<queue>
+	<unordered_map>
+
+1734636852 source:d:\strukdat\tubes-new\src\graph.cpp
+	"graph.h"
+	<algorithm>
+
